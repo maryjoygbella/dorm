@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url(background.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .navbar-brand img.logo {
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img.logo:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+        }
+
+        .nav-item .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-item .nav-link:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .navbar-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login {
+            background-color: #007bff;
+        }
+
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-signup {
+            background-color: #28a745;
+        }
+
+        .btn-signup:hover {
+            background-color: #218838;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding-top: 20px; 
+        }
+
+        .centered-section {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(249, 249, 249, 0.8);
+            margin: 2rem;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 600px;
+            max-height: calc(100vh - 160px);
+            overflow-y: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group-full {
+            grid-column: span 2;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                    <img src="logo.png" alt="DormMatch Logo" class="logo">
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="waitlist.html" class="nav-link">Waitlist</a></li>
+                    <li class="nav-item"><a href="solodorm.html" class="nav-link">Solo Dorm</a></li>
+                    <li class="nav-item"><a href="aboutus.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="account.html" class="nav-link">Account</a></li>
+                </ul>
+                <div class="navbar-buttons">
+                    <button class="btn btn-login" id="login-button">Login</button>
+                    <button class="btn btn-signup" id="signup-button">Sign Up</button>
+                    <a href="#account-profile" class="nav-link" id="account-profile" style="display: none;">Account Profile</a>
+                    <button class="btn btn-logout" id="logout-button" style="display: none;">Log Out</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="edit-profile-section" class="centered-section">
+            <h2>Edit Profile</h2>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="edit-profile-user-id">User ID</label>
+                        <input type="text" id="edit-profile-user-id" name="edit-profile-user-id" readonly value="12345">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-full-name">Full Name</label>
+                        <input type="text" id="edit-profile-full-name" name="edit-profile-full-name" value="John Lee">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-age">Age</label>
+                        <input type="number" id="edit-profile-age" name="edit-profile-age" value="21">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-sex">Sex</label>
+                        <select id="edit-profile-sex" name="edit-profile-sex">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-contact-number">Contact Number</label>
+                        <input type="text" id="edit-profile-contact-number" name="edit-profile-contact-number" value="09123456789">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-email">Email Address</label>
+                        <input type="email" id="edit-profile-email" name="edit-profile-email" value="johnlee@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-school">School</label>
+                        <input type="text" id="edit-profile-school" name="edit-profile-school" value="National University">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-degree-program">Degree Program</label>
+                        <input type="text" id="edit-profile-degree-program" name="edit-profile-degree-program" value="BS Computer Engineering">
+                    </div>
+                    <div class="form-group-full">
+                        <button type="submit">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DormMatch. All rights reserved.</p>
+    </footer>
+</body>
+</html>

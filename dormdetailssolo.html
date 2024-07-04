@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorm Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url(background.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 1rem;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand img.logo {
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img.logo:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+        }
+
+        .nav-item .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-item .nav-link:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .navbar-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login {
+            background-color: #007bff;
+        }
+
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-signup {
+            background-color: #28a745;
+        }
+
+        .btn-signup:hover {
+            background-color: #218838;
+        }
+
+        .centered-section {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(249, 249, 249, 0.8);
+            margin: 2rem;
+            border-radius: 5px;
+        }
+
+        .dorm-details img {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.reserve {
+            background-color: #28a745;
+        }
+
+        button.reserve:hover {
+            background-color: #218838;
+        }
+
+        button.exit {
+            background-color: #dc3545;
+        }
+
+        button.exit:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                    <img src="logo.png" alt="DormMatch Logo" class="logo">
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="waitlist.html" class="nav-link">Waitlist</a></li>
+                    <li class="nav-item"><a href="solodorm.html" class="nav-link">Solo Dorm</a></li>
+                    <li class="nav-item"><a href="aboutus.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="account.html" class="nav-link">Account</a></li>
+                </ul>
+                <div class="navbar-buttons">
+                    <button class="btn btn-login" id="login-button">Login</button>
+                    <button class="btn btn-signup" id="signup-button">Sign Up</button>
+                    <a href="#account-profile" class="nav-link" id="account-profile" style="display: none;">Account Profile</a>
+                    <button class="btn btn-logout" id="logout-button" style="display: none;">Log Out</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dorm-details-solo" class="centered-section dorm-details">
+            <h1 id="dorm-title"></h1>
+            <img id="dorm-photo" alt="Dorm Photo" class="dorm-photo">
+            <p><strong>Price:</strong> <span id="dorm-price"></span></p>
+            <p><strong>Status:</strong> <span id="dorm-status"></span></p>
+            <p><strong>Amenities:</strong> <span id="dorm-amenities"></span></p>
+            <button class="reserve" onclick="window.location.href='payment.html'">Reserve</button>
+            <button class="exit" onclick="window.location.href='solodorm.html'">Cancel</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DormMatch. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const image = urlParams.get('image');
+            const title = urlParams.get('title');
+            const price = urlParams.get('price');
+            const status = urlParams.get('status');
+            const amenities = urlParams.get('amenities');
+
+            document.getElementById('dorm-photo').src = image;
+            document.getElementById('dorm-title').textContent = title;
+            document.getElementById('dorm-price').textContent = price;
+            document.getElementById('dorm-status').textContent = status;
+            document.getElementById('dorm-amenities').textContent = amenities;
+        };
+    </script>
+</body>
+</html>
