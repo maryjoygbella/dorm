@@ -99,6 +99,55 @@
             margin: 2rem;
             border-radius: 5px;
         }
+        main {
+            flex: 1;
+        }
+
+        section {
+            padding: 2rem;
+            background-color: rgba(249, 249, 249, 0.8); /* Semi-transparent background */
+            margin: 2rem;
+            border-radius: 5px;
+        }
+
+        .dorm-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .dorm-box {
+            display: block;
+            width: calc(25% - 1rem);
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .dorm-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .dorm-box img.dorm-photo {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .dorm-box h3 {
+            margin-top: 0;
+        }
+
+        .dorm-box p {
+            margin: 0.5rem 0;
+            text-align: left;
+        }
 
         footer {
             background-color: rgba(51, 51, 51, 0.8);
@@ -137,6 +186,48 @@
             <h1>Welcome to DormMatch!</h1>
             <p>DormMatch is a platform designed to ensure a stress-free booking experience, simplifying the roommate selection process with a waitlisting feature while prioritizing students’ needs and convenience.</p>
         </section>
+        <section id="dorm-types" class="centered-section">
+            <h2>Dormitory Types</h2>
+            <div class="dorm-boxes">
+                    <a href="waitlist.html" class="dorm-box">
+                        <div>
+                            <img src="shared7.jpg" alt="Dorm Photo" class="dorm-photo">
+                            <h3>Class A Shared Dorm</h3>
+                            <p>40 square meters room is divided into four sections, each with a bed, and featuring two bathrooms, and a balcony.</p>
+                            <p><strong>Price:</strong> ₱18,000.00</p>
+                            <p><strong>Capacity:</strong> 4</p>
+                        </div>
+                    </a>
+                    <a href="waitlist.html" class="dorm-box">
+                        <div>
+                            <img src="shared5.png" alt="Dorm Photo" class="dorm-photo">
+                            <h3>Class B Shared Dorm</h3>
+                            <p>35 square meters room divided into four sections, each with a bed, and featuring two bathrooms.</p>
+                            <p><strong>Price:</strong> ₱14,000.00</p>
+                            <p><strong>Capacity:</strong> 4</p>
+                        </div>
+                    </a>
+                    <a href="solodorm.html" class="dorm-box">
+                        <div>
+                            <img src="solo5.jpg" alt="Dorm Photo" class="dorm-photo">
+                            <h3>Class A Solo Dorm</h3>
+                            <p>40 square meters room with a private bathroom and balcony.</p>
+                            <p><strong>Price:</strong> ₱16,000.00</p>
+                            <p><strong>Capacity:</strong> 1</p>
+                        </div>
+                    </a>
+                    <a href="solodorm.html" class="dorm-box">
+                        <div>
+                            <img src="solo2.jpeg" alt="Dorm Photo" class="dorm-photo">
+                            <h3>Class B Solo Dorm</h3>
+                            <p>35 square meters rooms with private bathroom.</p>
+                            <p><strong>Price:</strong> ₱12,000.00</p>
+                            <p><strong>Capacity:</strong> 1</p>
+                        </div>
+                    </a>    
+            </div>
+        </section>
+
         <section id="vision-mission" class="centered-section">
             <h2>Mission and Vision</h2>
             <p>To revolutionize student housing in Sta. Mesa by creating an innovative, user-friendly dormitory reservation system that ensures seamless access, unparalleled convenience, and a supportive community environment. Our long-term objective is to become the go-to platform for students seeking reliable, modern, and secure accommodations, fostering a vibrant community that enhances the overall student experience and success.</p>
