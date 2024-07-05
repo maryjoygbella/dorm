@@ -134,6 +134,10 @@
         button.exit:hover {
             background-color: #c82333;
         }
+
+        .occupants-list {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -168,7 +172,7 @@
             <p><strong>Status:</strong> <span id="dorm-status"></span></p>
             <p><strong>Amenities:</strong> <span id="dorm-amenities"></span></p>
             <p><strong>Occupants:</strong></p>
-            <ul id="dorm-occupants"></ul>
+            <div id="dorm-occupants" class="occupants-list"></div>
             <p><strong>Gender Needed:</strong> <span id="dorm-gender"></span></p>
             <button class="reserve" onclick="window.location.href='payment.html'">Reserve</button>
             <button class="exit" onclick="window.location.href='waitlist.html'">Exit</button>
@@ -187,7 +191,7 @@
             const price = urlParams.get('price');
             const status = urlParams.get('status');
             const amenities = urlParams.get('amenities');
-            const occupants = urlParams.get('occupants').split(', ');
+            const occupants = urlParams.get('occupants').split('; ');
             const gender = urlParams.get('gender');
 
             document.getElementById('dorm-photo').src = image;
@@ -198,9 +202,9 @@
 
             const occupantsList = document.getElementById('dorm-occupants');
             occupants.forEach(occupant => {
-                const listItem = document.createElement('li');
-                listItem.textContent = occupant;
-                occupantsList.appendChild(listItem);
+                const occupantText = document.createElement('p');
+                occupantText.textContent = occupant;
+                occupantsList.appendChild(occupantText);
             });
 
             document.getElementById('dorm-gender').textContent = gender;
