@@ -167,7 +167,8 @@
             <p><strong>Price:</strong> <span id="dorm-price"></span></p>
             <p><strong>Status:</strong> <span id="dorm-status"></span></p>
             <p><strong>Amenities:</strong> <span id="dorm-amenities"></span></p>
-            <p><strong>Occupants:</strong> <span id="dorm-occupants"></span></p>
+            <p><strong>Occupants:</strong></p>
+            <ul id="dorm-occupants"></ul>
             <p><strong>Gender Needed:</strong> <span id="dorm-gender"></span></p>
             <button class="reserve" onclick="window.location.href='payment.html'">Reserve</button>
             <button class="exit" onclick="window.location.href='waitlist.html'">Exit</button>
@@ -186,7 +187,7 @@
             const price = urlParams.get('price');
             const status = urlParams.get('status');
             const amenities = urlParams.get('amenities');
-            const occupants = urlParams.get('occupants');
+            const occupants = urlParams.get('occupants').split(', ');
             const gender = urlParams.get('gender');
 
             document.getElementById('dorm-photo').src = image;
@@ -194,7 +195,14 @@
             document.getElementById('dorm-price').textContent = price;
             document.getElementById('dorm-status').textContent = status;
             document.getElementById('dorm-amenities').textContent = amenities;
-            document.getElementById('dorm-occupants').textContent = occupants;
+
+            const occupantsList = document.getElementById('dorm-occupants');
+            occupants.forEach(occupant => {
+                const listItem = document.createElement('li');
+                listItem.textContent = occupant;
+                occupantsList.appendChild(listItem);
+            });
+
             document.getElementById('dorm-gender').textContent = gender;
         };
     </script>
